@@ -1,0 +1,21 @@
+<h2>My Products</h2>
+<ul class="products">
+  <li *ngFor="let product of products"
+    [class.selected]="product === selectedProduct"
+    (click)="onSelect(product)">
+    <span class="badge">{{product.id}}</span> {{product.name}}
+  </li>
+</ul>
+<div *ngIf="selectedProduct">
+  <h2>
+    {{selectedProduct.name | uppercase}} is my product
+  </h2>
+  <button (click)="addToCart()">Add to Cart</button>
+</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
