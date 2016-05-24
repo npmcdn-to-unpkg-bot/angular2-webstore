@@ -3,7 +3,6 @@ import { Router } from '@angular/router-deprecated';
 
 import { Product } from './product';
 import { ProductService } from './product.service.ts';
-
 import {CartService} from "../cart/cart.service";
 
 @Component({
