@@ -39,15 +39,16 @@ import {CartComponent} from './cart/cart.component';
         {
             path: '/products',
             name: 'Products',
-            component: ProductComponent,
-            useAsDefault: true
+            component: ProductComponent
         },
         {
             path: '/cart',
             name: 'Cart',
             component: CartComponent
         },
-        { redirectTo: ["Products"], path: "/**" }
+        {
+            path: '/', name: 'Index', component: ProductComponent, useAsDefault: true }
+
     ]
 )
 export class AppComponent   {

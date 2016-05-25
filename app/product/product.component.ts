@@ -27,14 +27,15 @@ export class ProductComponent implements OnInit {
     this.getProducts();
   }
 
-  onSelect(product: Product) { this.selectedProduct = product; }
+  onSelect(product: Product) { 
+    this.selectedProduct = product; 
+  }
 
   gotoDetail() {
     this.router.navigate(['ProductDetail', { id: this.selectedProduct.id }]);
   }
   
   addToCart() {
-    this.cartService.addItem(this.selectedProduct);
-    console.log(this.cartService.getTotalPrice())
+    this.cartService.addCartItem(this.selectedProduct);
   }
 }

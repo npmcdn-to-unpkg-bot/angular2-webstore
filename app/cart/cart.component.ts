@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgIf, NgFor, FORM_DIRECTIVES} from "@angular/common";
 
-import {Product} from '../product/product';
 import {CartService} from "./cart.service";
+import {CartItem, CartItemInterface} from "./cart.items";
 
 @Component(
     {
@@ -12,12 +12,17 @@ import {CartService} from "./cart.service";
     }
 )
 export class CartComponent implements OnInit {
-    private cartItems:Product[];
+    cartItems:CartItemInterface[];
 
     constructor( private cartService:CartService ) {}
 
+    removeFromCart(cartItem: CartItem ) {
+        this.cartService.deleteItem(cartItem);
+        this.getCartItems();
+    }
+
     getCartItems() {
-        this.cartItems = this.cartService.getCart()
+        this.cartItems = this.cartService.getCartItems()
     }
 
     ngOnInit() {
